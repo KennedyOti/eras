@@ -73,7 +73,7 @@ $(document).ready(function () {
       category: "bedding",
       price: 159.99,
       image:
-        "https://images.unsplash.com/photo-1616627561834-51d42b2d6eb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
+        "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1580&q=80",
       rating: 5,
       description: "Premium 1000-thread-count Egyptian cotton sheets.",
     },
