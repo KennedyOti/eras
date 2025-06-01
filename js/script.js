@@ -261,7 +261,7 @@ $(document).ready(function () {
                     <p>Your cart is empty</p>
                 </div>
             `);
-      $(".total-amount").text("$0.00");
+      $(".total-amount").text("KSH 0.00");
       return;
     }
 
