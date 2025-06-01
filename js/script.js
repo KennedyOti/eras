@@ -1,12 +1,12 @@
 $(document).ready(function () {
-  // Dummy product data
+  // Dummy product data (prices converted to KSH, 1 USD = 129 KSH)
   const products = [
     {
       id: 1,
       title: "Luxury Silk Pillowcase",
       category: "bedding",
-      price: 49.99,
-      originalPrice: 69.99,
+      price: 49.99 * 129,
+      originalPrice: 69.99 * 129,
       image:
         "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80",
       rating: 4,
@@ -17,8 +17,8 @@ $(document).ready(function () {
       id: 2,
       title: "Cashmere Throw Blanket",
       category: "bedding",
-      price: 129.99,
-      originalPrice: 159.99,
+      price: 129.99 * 129,
+      originalPrice: 159.99 * 129,
       image:
         "https://images.unsplash.com/photo-1603487742131-4160ec999306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80",
       rating: 5,
@@ -28,7 +28,7 @@ $(document).ready(function () {
       id: 3,
       title: "Designer Leather Handbag",
       category: "accessories",
-      price: 199.99,
+      price: 199.99 * 129,
       image:
         "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1538&q=80",
       rating: 4,
@@ -39,7 +39,7 @@ $(document).ready(function () {
       id: 4,
       title: "Statement Pearl Necklace",
       category: "accessories",
-      price: 89.99,
+      price: 89.99 * 129,
       image:
         "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80",
       rating: 4,
@@ -49,8 +49,8 @@ $(document).ready(function () {
       id: 5,
       title: "Classic Leather Loafers",
       category: "shoes",
-      price: 149.99,
-      originalPrice: 179.99,
+      price: 149.99 * 129,
+      originalPrice: 179.99 * 129,
       image:
         "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80",
       rating: 5,
@@ -61,7 +61,7 @@ $(document).ready(function () {
       id: 6,
       title: "Elegant High Heels",
       category: "shoes",
-      price: 119.99,
+      price: 119.99 * 129,
       image:
         "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1580&q=80",
       rating: 4,
@@ -71,7 +71,7 @@ $(document).ready(function () {
       id: 7,
       title: "Egyptian Cotton Sheets",
       category: "bedding",
-      price: 159.99,
+      price: 159.99 * 129,
       image:
         "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1580&q=80",
       rating: 5,
@@ -81,8 +81,8 @@ $(document).ready(function () {
       id: 8,
       title: "Designer Sunglasses",
       category: "accessories",
-      price: 179.99,
-      originalPrice: 199.99,
+      price: 179.99 * 129,
+      originalPrice: 199.99 * 129,
       image:
         "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1580&q=80",
       rating: 4,
@@ -140,12 +140,12 @@ $(document).ready(function () {
                         }</span>
                         <h3 class="product-title">${product.title}</h3>
                         <div class="product-price">
-                            <span class="current-price">$${product.price.toFixed(
+                            <span class="current-price">KSH ${product.price.toFixed(
                               2
                             )}</span>
                             ${
                               product.originalPrice
-                                ? `<span class="original-price">$${product.originalPrice.toFixed(
+                                ? `<span class="original-price">KSH ${product.originalPrice.toFixed(
                                     2
                                   )}</span>`
                                 : ""
@@ -206,7 +206,6 @@ $(document).ready(function () {
         sortedProducts.sort((a, b) => b.price - a.price);
         break;
       case "popular":
-        // For demo, we'll consider products with badges as "popular"
         sortedProducts.sort((a, b) => {
           const aHasBadge = a.badge ? 1 : 0;
           const bHasBadge = b.badge ? 1 : 0;
@@ -214,7 +213,6 @@ $(document).ready(function () {
         });
         break;
       default:
-        // Default sorting (original order)
         break;
     }
 
@@ -279,7 +277,7 @@ $(document).ready(function () {
                     </div>
                     <div class="cart-item-details">
                         <h4 class="cart-item-title">${item.title}</h4>
-                        <div class="cart-item-price">$${item.price.toFixed(
+                        <div class="cart-item-price">KSH ${item.price.toFixed(
                           2
                         )}</div>
                         <div class="cart-item-actions">
@@ -302,7 +300,7 @@ $(document).ready(function () {
     });
 
     cartItemsContainer.html(cartItemsHTML);
-    $(".total-amount").text(`$${total.toFixed(2)}`);
+    $(".total-amount").text(`KSH ${total.toFixed(2)}`);
   }
 
   // Update item quantity in cart
@@ -357,12 +355,12 @@ $(document).ready(function () {
                         <div class="modal-product-details">
                             <h3>${product.title}</h3>
                             <div class="product-price">
-                                <span class="current-price">$${product.price.toFixed(
+                                <span class="current-price">KSH ${product.price.toFixed(
                                   2
                                 )}</span>
                                 ${
                                   product.originalPrice
-                                    ? `<span class="original-price">$${product.originalPrice.toFixed(
+                                    ? `<span class="original-price">KSH ${product.originalPrice.toFixed(
                                         2
                                       )}</span>`
                                     : ""
@@ -412,7 +410,7 @@ $(document).ready(function () {
     modal.find(".whatsapp-order").click(function () {
       const message = `I'd like to order: ${
         product.title
-      } - $${product.price.toFixed(2)}`;
+      } - KSH ${product.price.toFixed(2)}`;
       const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, "_blank");
     });
@@ -481,7 +479,7 @@ $(document).ready(function () {
       if (product) {
         const message = `I'd like to order: ${
           product.title
-        } - $${product.price.toFixed(2)}`;
+        } - KSH ${product.price.toFixed(2)}`;
         const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(
           message
         )}`;
@@ -533,12 +531,12 @@ $(document).ready(function () {
       cart.forEach((item) => {
         const itemTotal = item.price * item.quantity;
         total += itemTotal;
-        message += `${item.title} x${item.quantity} - $${itemTotal.toFixed(
+        message += `${item.title} x${item.quantity} - KSH ${itemTotal.toFixed(
           2
         )}\n`;
       });
 
-      message += `\nTotal: $${total.toFixed(2)}`;
+      message += `\nTotal: KSH ${total.toFixed(2)}`;
 
       const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, "_blank");
